@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="../AgendamentoMvc.Business/AgendamentoMvc.Business.csproj" />
+  <Project Path="../AgendamentoMvc.Data/AgendamentoMvc.Data.csproj" />
+  <Project Path="../AgendamentoMvc.Domain/AgendamentoMvc.Domain.csproj" />
+  <Project Path="../AgendamentoMvc.Web/AgendamentoMvc.Web.csproj" />
+</Solution>

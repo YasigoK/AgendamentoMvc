@@ -1,0 +1,59 @@
+create database AgendamentoDb;
+go
+
+use AgendamentoDb;
+go
+
+
+create table Medicos(
+Id uniqueidentifier primary key default newid() not null,
+Nome varchar(80) not null,
+Sobrenome varchar(80) not null,
+Especialidade int not null,
+Crm int not null,
+Estado varchar(2) not null,
+Sexo char not null,
+DataDeNascimento Date not null,
+);
+
+insert into Medicos(Nome,Sobrenome,Especialidade,Crm,Estado,Sexo,DataDeNascimento)
+values
+('nome1','nome2',1,253620,'RJ','F','1998-04-13'),
+('nome2','sobre2',2,818777,'RJ','M','1968-12-19'),
+('nome3','sobre3',3,614722,'SP','O','2000-04-08');
+
+create table Pacientes(
+Id uniqueidentifier primary key default newid() not null,
+Nome varchar(80) not null,
+Sobrenome varchar(80) not null,
+Cpf varchar(11) not null,
+DataNascimento Date not null,
+);
+
+insert into Pacientes (Nome,Sobrenome,Cpf,DataNascimento)
+values 
+('p1','ps1','10494953730','1954-02-02'),
+('p2','ps2','75106754720','1954-02-02'),
+('p3','ps3','73820012702','1954-02-02');
+
+
+
+create table Agendamentos(
+Id uniqueidentifier primary key default newid() not null,
+Nome varchar(80) not null,
+Descricao varchar(200) not null,
+FK_ID_Medico uniqueidentifier not null,
+FK_ID_Paciente uniqueidentifier not null,
+DataAgendamento Date not null,
+DataCriacao Date not null,
+Status int not null,
+
+constraint medico_fk foreign key(FK_ID_Medico) references Medicos(Id),
+constraint paciente_fk foreign key(FK_ID_Paciente) references Pacientes(Id)
+); 
+
+
+
+insert into Agendamentos(Nome,Descricao,FK_ID_Medico,FK_ID_Paciente,DataAgendamento,DataCriacao,Status)
+values
+('consulta','descricao da consulta','guid1','guid2','2026-02-24','2026-02-05',1);
