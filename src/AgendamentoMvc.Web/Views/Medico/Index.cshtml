@@ -1,0 +1,52 @@
+﻿@using AgendamentoMvc.Business.Models;
+@model List<MedicoModel>;
+
+@{
+    ViewData["Title"] = "Alunos";
+}
+<div class="d-flex justify-content-end mb-5">
+
+    <a class="btn btn-success" type="submit" asp-controller="Medico" asp-action="CadastrarMedico"><i class="bi bi-person-add"></i> Cadastrar </a>
+
+</div>
+
+
+
+<div class="row">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Especialidade</th>
+                <th>Crm</th>
+                <th>Estado</th>
+                <th>Sexo</th>
+                <th>DataDeNascimento</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var medicos in Model)
+            {
+                <tr>
+                    <td>@medicos.Nome</td>
+                    <td>@medicos.Sobrenome</td>
+                    <td>@medicos.Especialidade</td>
+                    <td>@medicos.Crm</td>
+                    <td>@medicos.Estado</td>
+                    <td>@medicos.Sexo</td>
+                    <td>@medicos.DataDeNascimento</td>
+                    <td>
+                        <a class="btn btn-warning" type="submit" asp-controller="Medico" asp-action="CadastrarMedico" asp-route-id="@medicos.Id"><i class="bi bi-pen"></i>  </a>
+                    </td>
+
+                    <td>
+                        <a class="btn btn-danger" type="submit" asp-controller="Medico" asp-action="CadastrarMedico" asp-route-id="@medicos.Id"><i class="bi bi-trash2"></i>  </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
