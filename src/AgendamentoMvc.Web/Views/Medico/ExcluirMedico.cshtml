@@ -1,0 +1,97 @@
+﻿@using AgendamentoMvc.Business.Models
+@using AgendamentoMvc.Domain.Enums
+@model MedicoModel
+
+@{
+    ViewData["Title"] = "Cadastrar Medicos";
+
+}
+<div class="container bg-dark p-5 rounded-5">
+
+    <div class="mb-5 text-center ">
+
+        <h1 class="text-light">Editar Medico</h1>
+
+    </div>
+
+    <form method="post" asp-controller="Medico" asp-action="ExcluirMedico">
+        <input type="hidden" asp-for="Id" />
+        <!--NOME-SOBRENOME-->
+        <div class="row g-3">
+            <div class="col-sm-6">
+                <label for="Nome" class="form-label text-light">Nome do(a) Medico(a):</label>
+                <input disabled type="text" class="form-control" id="PrimeiroNome" asp-for="Nome" placeholder="Nome do(a) Medico(a) :">
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 col-sm-6">
+                <label for="Sobrenome" class="form-label text-light">Sobrenome  do(a) Medico(a) :</label>
+                <input disabled type="text" class="form-control" id="Sobrenome" asp-for="Sobrenome" placeholder="Sobrenome do(a) Medico(a)">
+
+                <span asp-validation-for="Sobrenome" class="text-danger"></span>
+            </div>
+
+        </div>
+
+        <!--ESPECIALIDADE-DATA DE NASCIMENTO-->
+        <div class="row g-3">
+            <div class="col-sm-6">
+                <label for="Especialidade" class="form-label text-light">Especialidade do(a) Medico(a) :</label>
+                <select disabled asp-for="Especialidade" asp-items="@Html.GetEnumSelectList<EspecialidadesEnum>()" class="form-control">
+                    <option disabled selected="selected" value="">Selecione uma especialidade</option>
+                </select>
+                <span asp-validation-for="Especialidade" class="text-danger"></span>
+            </div>
+
+            <div class="col-sm-6">
+                <label for="DataDeNascimento" class="form-label text-light">Data de nascimento do(a) Medico(a) :</label>
+                <input disabled type="date" class="form-control" id="DataDeNascimento" asp-for="DataDeNascimento" placeholder="Estado de atuação do(a) Medico(a)">
+                <span asp-validation-for="DataDeNascimento" class="text-danger"></span>
+            </div>
+
+        </div>
+
+        <!--CRM, ESTADO E SEXO-->
+        <div class="row g-3">
+            <div class="col-sm-2">
+                <label for="Crm" class="form-label text-light">Crm do(a) Medico(a)</label>
+                <input  disabled  type="number" class="form-control col-md-2" id="Nota" asp-for="Crm" placeholder="Crm">
+                <span asp-validation-for="Crm" class="text-danger"></span>
+            </div>
+            <div class="col-sm-2">
+                <label for="Estado" class="form-label text-light">Estado</label>
+                <input  disabled  type="text" class="form-control col-md-10" id="Estado" asp-for="Estado" placeholder="Estado de atuação ">
+                <span asp-validation-for="Estado" class="text-danger"></span>
+
+            </div>
+
+            <div class="col-sm-8">
+                <label for="Sexo" class="form-label text-light">Sexo do(a) Medico(a) :</label>
+                <select  disabled  class="form-select mb-3" name="Sexo" id="Sexo" asp-for="Sexo">
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                    <option value="O">Outro</option>
+                </select>
+                <span asp-validation-for="Sexo" class="text-danger"></span>
+
+            </div>
+        </div>
+
+
+
+        <!--BOTÃO-->
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-danger w-50">Excluir <i class="bi bi-trash2 mx-2"></i> </button>
+            <a class="btn btn-primary w-50" asp-controller="Medico" asp-action="Index">Voltar <i class="bi bi-arrow-return-left" mx-2></i></a>
+
+        </div>
+
+
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

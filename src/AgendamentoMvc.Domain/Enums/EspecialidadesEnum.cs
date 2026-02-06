@@ -1,8 +1,10 @@
-﻿namespace AgendamentoMvc.Domain.Enums;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AgendamentoMvc.Domain.Enums;
 
 public enum EspecialidadesEnum
 {
-    Cirurgia_Geral=1,
+    Cirurgia_Geral =1,
     Ginecologia_e_Obstetrícia=2,
     Pediatria=3,
     Medicina_Preventiva_e_Social=4,

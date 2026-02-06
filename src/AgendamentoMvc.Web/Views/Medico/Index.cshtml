@@ -13,9 +13,8 @@
 
 
 <div class="row">
-
-    <table class="table">
-        <thead>
+    <table class="table table-light table-hover">
+        <thead class="table-dark">
             <tr>
                 <th>Nome</th>
                 <th>Sobrenome</th>
@@ -24,6 +23,8 @@
                 <th>Estado</th>
                 <th>Sexo</th>
                 <th>DataDeNascimento</th>
+                <th>Editar</th>
+                <th>Excluir</th>
             </tr>
         </thead>
         <tbody>
@@ -38,11 +39,11 @@
                     <td>@medicos.Sexo</td>
                     <td>@medicos.DataDeNascimento</td>
                     <td>
-                        <a class="btn btn-warning" type="submit" asp-controller="Medico" asp-action="CadastrarMedico" asp-route-id="@medicos.Id"><i class="bi bi-pen"></i>  </a>
+                        <a class="btn btn-warning" type="submit" asp-controller="Medico" asp-action="EditarMedico" asp-route-id="@medicos.Id"><i class="bi bi-pen"></i>  </a>
                     </td>
 
                     <td>
-                        <a class="btn btn-danger" type="submit" asp-controller="Medico" asp-action="CadastrarMedico" asp-route-id="@medicos.Id"><i class="bi bi-trash2"></i>  </a>
+                        <a class="btn btn-danger" type="submit" asp-controller="Medico" asp-action="ExcluirMedico" asp-route-id="@medicos.Id"><i class="bi bi-trash2"></i>  </a>
                     </td>
                 </tr>
             }

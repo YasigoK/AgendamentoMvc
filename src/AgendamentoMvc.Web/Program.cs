@@ -9,7 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IMedicosService, MedicosService>();
+builder.Services.AddScoped<IPacienteService, PacienteService>();
+builder.Services.AddScoped<IAgendamentoService, AgendamentoService>();
+
 builder.Services.AddScoped<IMedicoRepository, MedicoRepository>();
+builder.Services.AddScoped<IPacienteRepository,PacienteRepository>();
+builder.Services.AddScoped<IAgendamentoRepository, AgendamentoRepository>();
+
 builder.Services.AddDbContext<AgendamentoMvcDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConexaoDb"));

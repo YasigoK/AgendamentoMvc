@@ -49,13 +49,13 @@ public class MedicosService:IMedicosService
         if (entity != null)
         {
             entity.AtualizarMedico(
-                entity.Nome,
-                entity.Sobrenome,
-                entity.Especialidade,
-                entity.Crm,
-                entity.Estado,
-                entity.Sexo,
-                entity.DataDeNascimento
+                model.Nome,
+                model.Sobrenome,
+                model.Especialidade,
+                model.Crm,
+                model.Estado,
+                model.Sexo,
+                model.DataDeNascimento
 
                 );
 

@@ -18,7 +18,7 @@ public class MedicoModel : BaseEntity
     public EspecialidadesEnum Especialidade { get; set; }
 
     [Required(ErrorMessage ="Campo obrigaório, insira o CRM do(a) médico(a)")]
-    [Range(1,6, ErrorMessage ="Limite de 6 digitos")]
+    [Range(0,999999, ErrorMessage ="Limite de 6 digitos")]
     public int Crm { get; set; }
 
     [Required(ErrorMessage = "Campo obrigaório, insira o código UF do estado")]
@@ -26,7 +26,6 @@ public class MedicoModel : BaseEntity
     public string Estado { get; set; }
 
     [Required(ErrorMessage = "Campo obrigaório, insira o o sexo do(a) médico(a)")]
-    [StringLength(1)]
     public char Sexo { get; set; }
 
     [Required(ErrorMessage = "Campo obrigaório,insira a data de nascimento do(a) medico(a)")]

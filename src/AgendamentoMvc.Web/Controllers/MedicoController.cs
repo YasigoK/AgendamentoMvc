@@ -21,7 +21,7 @@ public class MedicoController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> CadastrarCadastrarMedico()
+    public async Task<IActionResult> CadastrarMedico()
     {
         return View();
     }
@@ -35,5 +35,39 @@ public class MedicoController : Controller
             return View(medico);
         else
             return RedirectToAction("index");
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> EditarMedico(Guid id)
+    {
+        var entity = await _medicosService.BuscarId(id);
+        if (entity != null)
+            return View(entity);
+        else
+            return NotFound();
+    }
+    [HttpPost]
+    public async Task<IActionResult> EditarMedico(MedicoModel medico)
+    {
+        var entity = await _medicosService.EditarMedico(medico);
+        if (entity == true)
+            return RedirectToAction("index");
+        else
+            return View(medico.Id);
+    }
+
+
+    [HttpGet]
+    public async Task<IActionResult> ExcluirMedico(Guid id)
+    {
+        var entity = await _medicosService.BuscarId(id);
+        return View(entity);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ExcluirMedico(MedicoModel model)
+    {
+        var entity = await _medicosService.DeletarMedico(model);
+        return RedirectToAction("Index");
     }
 }
