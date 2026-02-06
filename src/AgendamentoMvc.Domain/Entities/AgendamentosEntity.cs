@@ -12,12 +12,15 @@ public class AgendamentosEntity : BaseEntity
     public DateTime DataCriacao { get; protected set; }
     public StatusEnum Status { get; protected set; }
 
+    //public MedicosEntity Medico { get; set; }
+    //public PacientesEntity Pacientes { get; set; }
+
     public AgendamentosEntity()
     {
         
     }
 
-    public AgendamentosEntity(string nome,Guid FK_1,Guid FK_2, string descricao, DateTime agendamento)
+    public AgendamentosEntity(string nome, string descricao,Guid FK_1,Guid FK_2, DateTime agendamento)
     {
         Nome = nome;
         Descricao = descricao;
@@ -27,5 +30,15 @@ public class AgendamentosEntity : BaseEntity
         DataCriacao = DateTime.Now;
         Status = (StatusEnum)1;
         
+    }
+
+    public void AtualizarAgendamento(string nome, string descricao, Guid FK_1, Guid FK_2, DateTime agendamento,StatusEnum status)
+    {
+        Nome = nome;
+        Descricao = descricao;
+        FK_ID_Medico = FK_1;
+        FK_ID_Paciente = FK_2;
+        DataAgendamento = agendamento;
+        Status =status;
     }
 }

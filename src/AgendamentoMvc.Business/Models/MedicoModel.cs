@@ -32,7 +32,7 @@ public class MedicoModel : BaseEntity
     [DataType(DataType.Date)]
     public DateOnly DataDeNascimento { get; set; }
 
-
+    public string? nomeCompleto { get; set; }
     public static MedicoModel Mapear(MedicosEntity entity)
     {
         if (entity == null)

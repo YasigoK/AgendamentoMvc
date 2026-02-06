@@ -21,6 +21,17 @@ public class MedicosService:IMedicosService
             return MedicoModel.Mapear(x);
         }).ToList();
     }
+
+    public async Task<List<MedicoModel>> ListarNomeId()
+    {
+        var entity = await _medicoRepository.ListarTodos();
+        return entity.Select(x => new MedicoModel
+        {
+            Id = x.Id,
+            nomeCompleto = $"{x.Nome} {x.Sobrenome}"
+
+        }).ToList();
+    }
     public async Task<MedicoModel> BuscarId(Guid id)
     {
         var entity = await _medicoRepository.GetById(id);

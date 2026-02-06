@@ -1,0 +1,37 @@
+﻿@using AgendamentoMvc.Business.Models
+@using AgendamentoMvc.Domain.Enums
+@model List<AgendamentoModel>
+
+@{
+    ViewData["Title"] = "Agendamentos";
+}
+<div class="d-flex justify-content-end mb-5">
+
+    <a class="btn btn-success" type="submit" asp-controller="Agendamentos" asp-action="CadastrarAgendamento"><i class="bi bi-person-add"></i> Cadastrar</i> </a>
+
+</div>
+
+<div class="row">
+
+    @foreach(var agen in Model)
+    {
+        string corCartao = agen.Status switch
+        {
+            StatusEnum.Agendado => "bg-primary",    
+            StatusEnum.Ocorrendo => "bg-warning",
+            StatusEnum.Finalizado => "bg-success",
+            StatusEnum.Cancelado => "bg-danger",
+        };
+
+        <div class="card text-white @corCartao mb-3" style="max-width: 18rem;">
+            <div class="card-header"> @agen.Status</div>
+            <div class="card-body">
+                <h5 class="card-title">@agen.Nome</h5>
+                <p class="card-text"> @agen.Descricao
+                <p class="card-text"><strong>Medico: </strong> </p>
+                <p class="card-text"><strong>Paciente: </strong> </p>
+                <p class="card-text"><strong>Data do agendamento: </strong> @agen.DataAgendamento </p>
+            </div>
+        </div>
+    }
+</div>
