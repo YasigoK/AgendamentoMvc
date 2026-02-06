@@ -1,0 +1,70 @@
+﻿@using AgendamentoMvc.Business.Models
+@model PacienteModel
+
+
+@{
+    ViewData["Title"] = "Excluir Paciente";
+
+}
+<div class="container bg-dark p-5 rounded-5">
+
+    <div class="mb-5 text-center ">
+
+        <h1 class="text-light">Cadastro de Medico</h1>
+
+    </div>
+
+    <form method="post" asp-controller="Paciente" asp-action="ExcluirPaciente">
+        <input type="hidden" asp-for="Id" />
+        <!--NOME-SOBRENOME-->
+        <div class="row g-3">
+            <div class="col-sm-6">
+                <label for="Nome" class="form-label text-light">Nome do(a) paciente:</label>
+                <input disabled type="text" class="form-control" id="PrimeiroNome" asp-for="Nome" placeholder="Nome do(a) Paciente :">
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 col-sm-6">
+                <label for="Sobrenome" class="form-label text-light">Sobrenome  do(a) Medico(a) :</label>
+                <input disabled type="text" class="form-control" id="Sobrenome" asp-for="Sobrenome" placeholder="Sobrenome do(a) Medico(a)">
+
+                <span asp-validation-for="Sobrenome" class="text-danger"></span>
+            </div>
+
+        </div>
+
+        <!--CPF-->
+        <div ">
+            <div class="col-auto">
+                <label for="Cpf" class="form-label text-light">Cpf:</label>
+                <input disabled type="text" class="form-control" id="PrimeiroNome" asp-for="Cpf" placeholder="Cpf:">
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+
+        </div>
+
+
+        <!--DATA-->
+        <div class="col-auto">
+            <label for="DataNascimento" class="form-label text-light">Data de nascimento:</label>
+            <input disabled type="date" class="form-control" id="DataNascimento" asp-for="DataNascimento" placeholder="Data de Nascimento">
+            <span asp-validation-for="DataNascimento" class="text-danger"></span>
+        </div>
+
+
+        <!--BOTÃO-->
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-danger w-50">Excluir <i class="bi bi-trash2"></i> </button>
+            <a class="btn btn-primary w-50" asp-controller="Paciente" asp-action="Index">Voltar <i class="bi bi-arrow-return-left" mx-2></i></a>
+
+        </div>
+
+
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

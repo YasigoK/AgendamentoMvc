@@ -1,0 +1,47 @@
+﻿@using AgendamentoMvc.Business.Models
+@model List<PacienteModel>
+
+@{
+    ViewData["Title"] = "Pacientes";
+}
+<div class="d-flex justify-content-end mb-5">
+
+    <a class="btn btn-success" type="submit" asp-controller="Paciente" asp-action="CadastrarPaciente"><i class="bi bi-person-add"></i> Cadastrar </a>
+
+</div>
+
+
+
+<div class="row">
+    <table class="table table-light table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Cpf</th>
+                <th>Data de nascimento</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var paciente in Model)
+            {
+                <tr>
+                    <td>@paciente.Nome</td>
+                    <td>@paciente.Sobrenome</td>
+                    <td>@paciente.Cpf</td>
+                    <td>@paciente.DataNascimento</td>
+                    <td>
+                        <a class="btn btn-warning" type="submit" asp-controller="Paciente" asp-action="EditarPaciente" asp-route-id="@paciente.Id"><i class="bi bi-pen"></i>  </a>
+                    </td>
+
+                    <td>
+                        <a class="btn btn-danger" type="submit" asp-controller="Paciente" asp-action="ExcluirPaciente" asp-route-id="@paciente.Id"><i class="bi bi-trash2"></i>  </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

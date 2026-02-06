@@ -32,7 +32,7 @@ public class MedicoController : Controller
         var entity = await _medicosService.CriarMedico(medico);
 
         if(entity==null)
-            return View(medico);
+            return View();
         else
             return RedirectToAction("index");
     }
