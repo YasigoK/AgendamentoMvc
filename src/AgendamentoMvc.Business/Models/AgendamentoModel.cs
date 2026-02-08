@@ -26,6 +26,7 @@ public class AgendamentoModel : BaseEntity
     public DateTime DataCriacao { get;  set; }
     public StatusEnum Status { get; set; }
 
+    public string MedicoNome {  get; set; }
     public AgendamentoModel()
     {
         
@@ -46,6 +47,7 @@ public class AgendamentoModel : BaseEntity
             DataAgendamento = entity.DataAgendamento ,
             DataCriacao = entity.DataCriacao ,
             Status = entity.Status ,
+            MedicoNome = $"{entity.Medico?.Nome} {entity.Medico?.Sobrenome}"
         };
     }
 

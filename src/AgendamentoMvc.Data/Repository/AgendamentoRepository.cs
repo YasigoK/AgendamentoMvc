@@ -16,7 +16,7 @@ public class AgendamentoRepository : IAgendamentoRepository
 
     public async Task<List<AgendamentosEntity>> GetAll()
     {
-        return await _db.Agendamentos.AsNoTracking().ToListAsync();
+        return await _db.Agendamentos.Include(m=>m.Medico).AsNoTracking().ToListAsync();
     }
     public async Task<AgendamentosEntity> GetById(Guid id)
     {

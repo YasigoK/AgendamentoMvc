@@ -36,7 +36,7 @@ values
 ('p2','ps2','75106754720','1954-02-02'),
 ('p3','ps3','73820012702','1954-02-02');
 
-111,333,222,34
+-111,333,222,34
 
 create table Agendamentos(
 Id uniqueidentifier primary key default newid() not null,

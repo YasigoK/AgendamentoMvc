@@ -1,4 +1,5 @@
 ﻿using AgendamentoMvc.Domain.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgendamentoMvc.Domain.Entities;
 
@@ -11,8 +12,8 @@ public class AgendamentosEntity : BaseEntity
     public DateTime DataAgendamento { get; protected set; }
     public DateTime DataCriacao { get; protected set; }
     public StatusEnum Status { get; protected set; }
-
-    //public MedicosEntity Medico { get; set; }
+    [ForeignKey("FK_ID_Medico")]
+    public virtual MedicosEntity Medico { get; set; } //lazy loading
     //public PacientesEntity Pacientes { get; set; }
 
     public AgendamentosEntity()

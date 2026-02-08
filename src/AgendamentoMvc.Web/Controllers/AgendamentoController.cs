@@ -19,8 +19,6 @@ public class AgendamentoController : Controller
     public async Task<IActionResult> Index()
     {
         var entity = await _agendamentoService.ListarTodos();
-        var listagem = await _medicoService.ListarNomeId();
-        ViewBag.NomesMedicos = new SelectList(listagem, "NomeCompleto");
         return View(entity);
     }
 }
