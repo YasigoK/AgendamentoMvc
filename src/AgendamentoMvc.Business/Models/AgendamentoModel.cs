@@ -27,6 +27,7 @@ public class AgendamentoModel : BaseEntity
     public StatusEnum Status { get; set; }
 
     public string MedicoNome {  get; set; }
+    public string PacienteNome { get; set; }
     public AgendamentoModel()
     {
         
@@ -47,7 +48,8 @@ public class AgendamentoModel : BaseEntity
             DataAgendamento = entity.DataAgendamento ,
             DataCriacao = entity.DataCriacao ,
             Status = entity.Status ,
-            MedicoNome = $"{entity.Medico?.Nome} {entity.Medico?.Sobrenome}"
+            MedicoNome = $"{entity.Medico?.Nome} {entity.Medico?.Sobrenome}",
+            PacienteNome = $"{entity.Paciente?.Nome} {entity.Paciente?.Sobrenome}"
         };
     }
 

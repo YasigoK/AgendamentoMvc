@@ -7,7 +7,7 @@
 }
 <div class="d-flex justify-content-end mb-5">
 
-    <a class="btn btn-success" type="submit" asp-controller="Agendamentos" asp-action="CadastrarAgendamento"><i class="bi bi-person-add"></i> Cadastrar</i> </a>
+    <a class="btn btn-success" type="submit" asp-controller="Agendamento" asp-action="CadastrarAgendamento"><i class="bi bi-person-add"></i> Cadastrar</i> </a>
 
 </div>
 
@@ -29,7 +29,7 @@
                 <h5 class="card-title">@agen.Nome</h5>
                 <p class="card-text"> @agen.Descricao
                 <p class="card-text"><strong>Medico: </strong>@agen.MedicoNome </p>
-                <p class="card-text"><strong>Paciente: </strong> </p>
+                <p class="card-text"><strong>Paciente: </strong> @agen.PacienteNome </p>
                 <p class="card-text"><strong>Data do agendamento: </strong> @agen.DataAgendamento </p>
             </div>
         </div>

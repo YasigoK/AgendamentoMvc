@@ -78,4 +78,14 @@ public class MedicosService:IMedicosService
         else
             return false;
     }
+
+    public async Task <List<MedicoModel>> ListarNomeId()
+    {
+        var entity = await _medicoRepository.ListarTodos();
+        return entity.Select(x => new MedicoModel
+        {
+            Id = x.Id,
+            nomeCompleto = $"{x.Nome} {x.Sobrenome}"
+        }).ToList();
+    }
 }

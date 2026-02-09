@@ -9,4 +9,5 @@ public interface IMedicosService
     Task<bool> CriarMedico(MedicoModel model);
     Task<bool> EditarMedico(MedicoModel model);
     Task<bool> DeletarMedico(MedicoModel model);
+    Task <List<MedicoModel>> ListarNomeId();
 }

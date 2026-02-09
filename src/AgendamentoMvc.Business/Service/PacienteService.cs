@@ -28,6 +28,16 @@ public class PacienteService : IPacienteService
         var entity = await _pacienteRepository.GetById(id);
         return PacienteModel.Mapear(entity);
     }
+
+    public async Task<PacienteModel> ListarNomeId()
+    {
+        var entity = await _pacienteRepository.ListarTodos();
+        return entity = new PacienteModel
+        {
+
+        }
+
+    }
     public async Task<bool> CriarPaciente(PacienteModel paciente)
     {
         var novoPaciente = new PacientesEntity(

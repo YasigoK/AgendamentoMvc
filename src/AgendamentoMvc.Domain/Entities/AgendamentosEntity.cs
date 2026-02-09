@@ -14,7 +14,9 @@ public class AgendamentosEntity : BaseEntity
     public StatusEnum Status { get; protected set; }
     [ForeignKey("FK_ID_Medico")]
     public virtual MedicosEntity Medico { get; set; } //lazy loading
-    //public PacientesEntity Pacientes { get; set; }
+
+    [ForeignKey("FK_ID_Paciente")]
+    public virtual PacientesEntity Paciente { get; set; }
 
     public AgendamentosEntity()
     {

@@ -5,6 +5,7 @@ namespace AgendamentoMvc.Business.Service.Interface;
 public interface IPacienteService
 {
     public Task<List<PacienteModel>> ListarTodos();
+    public Task<List<PacienteModel>> ListarNomeId();
     public Task<PacienteModel> ListarPorId(Guid id);
     public Task<bool> CriarPaciente(PacienteModel paciente);
     public Task<bool> EditarPaciente(PacienteModel paciente);

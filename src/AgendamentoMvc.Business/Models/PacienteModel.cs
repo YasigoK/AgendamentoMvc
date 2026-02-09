@@ -1,4 +1,5 @@
 ﻿using AgendamentoMvc.Domain.Entities;
+using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
 
 namespace AgendamentoMvc.Business.Models;
@@ -21,6 +22,7 @@ public class PacienteModel : BaseEntity
     [DataType(DataType.Date)]
     public DateOnly DataNascimento { get;set; }
 
+    public string? NomeCompleto { get;set; }
     public PacienteModel()
     {
         
@@ -36,7 +38,7 @@ public class PacienteModel : BaseEntity
             Nome = entity.Nome,
             Sobrenome = entity.Sobrenome,
             Cpf = entity.Cpf,
-            DataNascimento = entity.DataNascimento
+            DataNascimento = entity.DataNascimento,
         };
     }
 

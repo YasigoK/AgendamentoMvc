@@ -1,0 +1,72 @@
+﻿@using AgendamentoMvc.Business.Models
+@using AgendamentoMvc.Domain.Enums
+@model AgendamentoModel
+
+@{
+    ViewData["Title"] = "Cadastrar agendamento";
+
+}
+<div class="container bg-dark p-5 rounded-5">
+
+    <div class="mb-5 text-center ">
+
+        <h1 class="text-light">Cadastro de Medico</h1>
+
+    </div>
+
+    <form method="post" asp-controller="Medico" asp-action="EditarMedico">
+        <!--NOME-->
+        <div class="row g-3">
+            <div >
+                <label for="Nome" class="form-label text-light">Nome do(a) Medico(a):</label>
+                <input type="text" class="form-control" id="PrimeiroNome" asp-for="Nome" placeholder="Nome do agendamento:">
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+        </div>
+
+        <!--DESCRICAO-->
+        <div class="row g-3">
+
+              <div class="mb-3">
+                <label for="Descricao" class="form-label text-light">Descrição:</label>
+                <input type="text" class="form-control" id="Sobrenome" asp-for="Descricao" placeholder="Descrição" />
+
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+        </div>
+        <!--VIEWBAG 1-->
+        <div class="row g-3">
+            <label for="FK_ID_Medico" class="form-label text-light">Selecione um medico</label>
+            <select asp-for="FK_ID_Medico" asp-items="@(ViewBag.Medicos as SelectList)" class=" form-select form-select-lg mb-3">
+                <option value="">Selecione um diretor : </option>
+            </select>
+            <span asp-validation-for="FK_ID_Medico" class="text-danger"></span>
+        </div>
+        <!--VIEWBAG 2-->
+        <div class="row g-3">
+            <label for="FK_ID_Medico" class="form-label text-light">Selecione um medico</label>
+            <select asp-for="FK_ID_Medico" asp-items="@(ViewBag.Medicos as SelectList)" class=" form-select form-select-lg mb-3">
+                <option value="">Selecione um diretor : </option>
+            </select>
+            <span asp-validation-for="FK_ID_Medico" class="text-danger"></span>
+        </div>
+
+
+
+        <!--BOTÃO-->
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-success w-50">Adicionar <i class="bi bi-person-add"></i> </button>
+            <a class="btn btn-primary w-50" asp-controller="Medico" asp-action="Index">Voltar <i class="bi bi-arrow-return-left" mx-2></i></a>
+
+        </div>
+
+
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
